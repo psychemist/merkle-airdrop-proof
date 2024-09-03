@@ -7,7 +7,7 @@ This project demonstrates the creation of a Merkle tree-based airdrop system usi
 1. Begin by installing the necessary dependencies:
 
    ```bash
-   npm install csv-parser merkletreejs keccak256
+   npm install csv-parser keccak256 merkletreejs 
    ```
 
 2. Create your addresses.csv file in the following structure:
