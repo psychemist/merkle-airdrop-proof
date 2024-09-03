@@ -59,8 +59,6 @@ Run the tests using:
 
 ## Limitations and Assumptions
 
-- The CSV file is assumed to be correctly formatted and to contain valid Ethereum addresses.
-- The contract assumes that the ERC20 token has the necessary decimals to accommodate the amounts listed in the CSV file.
-- The contract owner is responsible for ensuring the contract is funded with sufficient tokens before claims can be made.
-- Updating the Merkle root will not invalidate any previous claims, so caution is advised when performing updates.
 - Ensure that the Merkle root is generated from a reliable and trusted data source.
+- The CSV file is assumed to be correctly formatted and to contain valid Ethereum addresses.
+- The contract owner is responsible for ensuring the contract is funded with sufficient tokens before claims can be made.
