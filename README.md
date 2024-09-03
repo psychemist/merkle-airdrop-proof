@@ -33,10 +33,10 @@ This project demonstrates the creation of a Merkle tree-based airdrop system usi
 2. Deploy the contract by running
 
     ```bash
-    npx hardhat run scripts/deploy.js --network <your-network>
+    npx hardhat run scripts/deploy.js --network network-name
     ```
 
-    Replace <your-network> with the network you are deploying to (e.g., localhost, sepolia, lisk, base, etc.).
+    Replace `network-name` with the network you are deploying to (e.g., localhost, sepolia, lisk, base, etc.).
 
 3. Ensure the deployment script passes the ERC20 token address and the Merkle root during deployment.
 
