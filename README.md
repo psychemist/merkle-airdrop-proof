@@ -47,7 +47,7 @@ This project demonstrates the creation of a Merkle tree-based airdrop system usi
 - An example claim function call:
 
     ```javascript
-    await merkleAirdrop.claim(amount, proof);
+    await MerkleAirdrop.claimAirdrop(amount, proof);
     ```
 
 <!-- ## Running Tests

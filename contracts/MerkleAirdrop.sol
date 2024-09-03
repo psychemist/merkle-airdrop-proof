@@ -18,7 +18,7 @@ contract MerkleAirdrop is Ownable {
         merkleRoot = _merkleRoot;
     }
 
-    function ClaimAirdrop(bytes32[] memory _proof, uint _amount) external {
+    function claimAirdrop(bytes32[] memory _proof, uint _amount) external {
         require(!validClaims[msg.sender], "Address has claimed airdrop!");
 
         bytes32 leaf = keccak256(
