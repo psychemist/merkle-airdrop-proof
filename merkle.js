@@ -14,23 +14,27 @@ fs.createReadStream(filePath)
         leaves.push(userData);
     })
     .on("end", () => {
-        const tree = StandardMerkleTree.of(leaves, ["address", "uint256"]);
-        fs.writeFileSync("tree.json", JSON.stringify(tree.dump()));
-        console.log("Merkle Root:", tree.root);
+        try {
+            const tree = StandardMerkleTree.of(leaves, ["address", "uint256"]);
+            fs.writeFileSync("tree.json", JSON.stringify(tree.dump()));
+            console.log("Merkle Root:", tree.root);
 
-        const proofs = [];
-        const merkleTree = StandardMerkleTree.load(JSON.parse(fs.readFileSync("tree.json", "utf8")))
+            const merkleTree = StandardMerkleTree.load(JSON.parse(fs.readFileSync("tree.json", "utf8")))
+            const proofs = {};
 
-        for (const [i, v] of merkleTree.entries()) {
-            const proof = merkleTree.getProof(i);
-            proofs.push({ [v]: proof });
+            for (const [i, v] of merkleTree.entries()) {
+                const proof = merkleTree.getProof(i);
+                proofs[v[0]] = proof;
+            }
+
+            fs.writeFileSync("proofs.json", JSON.stringify(proofs, null, 2), "utf8");
+            console.log("Proofs saved successfully");
+        } catch (err) {
+            console.log("Proofs could not be generated: " + err);
         }
-
-        fs.writeFileSync("proofs.json", JSON.stringify(proofs), "utf-8");
-        console.log("All proofs saved successfully");
     })
     .on("error", (err) => {
-        console.error(err);
+        console.log("Error reading addresses.csv: " + err);
     })
 
 
