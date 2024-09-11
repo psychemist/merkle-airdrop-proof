@@ -1,14 +1,14 @@
 Assignment ::: Something Cool for weekend relaxation
 
-The goal of this assignment is to teach students how to implement a smart contract for an airdrop that uses a Merkle tree for whitelisting addresses. Students will learn how to generate a Merkle root from a list of eligible addresses, implement a Solidity contract that verifies claims against this Merkle root, and manage the airdrop process.
+The goal of this assignment is to teach students how to implement a smart contract for an airdrop that uses a Merkle tree for whitelisting addresses.
+Students will learn how to generate a Merkle root from a list of eligible addresses, implement a Solidity contract that verifies claims against this Merkle root, and manage the airdrop process.
 
 
 1. Prepare the CSV File
 
-
 -- You will be provided with a CSV file containing a list of addresses and the amount of tokens each address is eligible to receive.
 
-CSV file will look like
+CSV file will look like:
 address,amount
 0x123...abc,100
 0x456...def,200
@@ -16,46 +16,44 @@ address,amount
 
 2. Generate the Merkle Tree
 
-
 -- Write a JavaScript script (merkle.js) that:
-Reads the CSV file.
-Hashes each entry in the format keccak256(address, amount).
-Constructs a Merkle tree from these hashed entries.
-Outputs the Merkle root.
+- Reads the CSV file.
+- Hashes each entry in the format keccak256(address, amount).
+- Constructs a Merkle tree from these hashed entries.
+- Outputs the Merkle root.
 
 Note: Use the merkletreejs library to assist in generating the Merkle tree and root hash.
+
 Deliverable: The merkle.js script and the generated Merkle root.
 
 
 3. Implement the Solidity Contract
 
-
 -- Create a smart contract named MerkleAirdrop that:
-Accepts an ERC20 token address and the Merkle root as constructor parameters.
-Allows users to claim their airdrop by providing their address, the amount, and a valid Merkle proof.
-Verifies the proof against the stored Merkle root.
-Ensures that users can only claim their airdrop once.
-Emits an event when a successful claim is made.
-Provides functions for the contract owner to update the Merkle root and withdraw any remaining tokens after the airdrop is complete.
+- Accepts an ERC20 token address and the Merkle root as constructor parameters.
+- Allows users to claim their airdrop by providing their address, the amount, and a valid Merkle proof.
+- Verifies the proof against the stored Merkle root.
+- Ensures that users can only claim their airdrop once.
+- Emits an event when a successful claim is made.
+- Provides functions for the contract owner to update the Merkle root and withdraw any remaining tokens after the airdrop is complete.
 
 Deliverable: The MerkleAirdrop.sol contract.
 
+
 4. Testing the Airdrop Contract
 
-
 -- Write test cases using Hardhat to:
-Deploy the contract with a sample ERC20 token and Merkle root.
-Simulate valid and invalid claims.
-Ensure that the contract correctly handles double claims and invalid proofs.
+- Deploy the contract with a sample ERC20 token and Merkle root.
+- Simulate valid and invalid claims.
+- Ensure that the contract correctly handles double claims and invalid proofs.
 
 Deliverable: The test suite for your contract. 
 
 
 5. Documentation
 
-
 -- Write a README file that includes:
-An explanation of how to set up and run your merkle.js script.
-Instructions for deploying the MerkleAirdrop contract.
-A guide on how to generate proofs for claiming the airdrop.
-Any assumptions or limitations in your implementation.
+- An explanation of how to set up and run your merkle.js script.
+- Instructions for deploying the MerkleAirdrop contract.
+- A guide on how to generate proofs for claiming the airdrop.
+- Any assumptions or limitations in your implementation.
