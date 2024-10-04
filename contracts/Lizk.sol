@@ -20,12 +20,4 @@ contract Lizk is ERC20 {
         require(msg.sender == _owner, "Only owner can mint more tokens!");
         _mint(_owner, _amount);
     }
-
-    // function getTokens(uint256 _amount) external {
-    //     require(msg.sender != address(0), "Address Zero cannot withdraw tokens!");
-    //     require(_amount > 0, "Cannot stake zero tokens!");
-    //     require(token.balanceOf(msg.sender) > 0, "Insufficient funds");
-
-    //     transfer
-    // }
 }
